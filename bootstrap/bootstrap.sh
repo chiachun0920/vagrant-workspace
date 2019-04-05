@@ -1,4 +1,6 @@
 # env=debug
+name=chris
+email=chiachun0920@gmail.com
 
 _install_nvm () {
 	echo "download installing script"
@@ -39,6 +41,12 @@ _install () {
 	fi
 }
 
+_setup_git () {
+	git config --global user.email "$email"
+	git config --global user.name "$name"
+	git config --global alias.lg "log --oneline --decorate --graph --all"
+}
+
 _setup_alias () {
 	alias_dps="alias dps='docker ps --format \"talbe {{.Names}}\t{{.ID}}\t{{.Ports}}\"'"
 	echo $alias_dps >> ~/.bashrc
@@ -65,4 +73,6 @@ echo "SETUP DEV DEPENDENCIES"
 
 # install development dependencies
 install nvm docker
-setup alias
+setup alias git
+
+echo "cd /workspace/" >> ~/.bashrc

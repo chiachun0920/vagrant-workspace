@@ -1,0 +1,5 @@
+workspace
+
+*.log
+
+.vagrant

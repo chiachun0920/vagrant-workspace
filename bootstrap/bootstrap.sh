@@ -11,6 +11,7 @@ _install_nvm () {
 	nvm install node
 	nvm use node
 	popd
+	npm install -g yarn
 }
 
 _install_docker () {

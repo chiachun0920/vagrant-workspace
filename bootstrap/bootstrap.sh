@@ -30,7 +30,9 @@ _install_docker () {
 	echo "INSTALL DOCKER CE"
 	sudo apt-get update -y
 	sudo apt-get install docker-ce docker-ce-cli containerd.io -y
-	sudo docker run hello-world
+	
+	sudo groupadd docker
+	sudo gpasswd -a $USER docker
 }
 
 _install () {
@@ -49,7 +51,7 @@ _setup_git () {
 }
 
 _setup_alias () {
-	alias_dps="alias dps='docker ps --format \"talbe {{.Names}}\t{{.ID}}\t{{.Ports}}\"'"
+	alias_dps="alias dps='docker ps --format \"table {{.Names}}\t{{.ID}}\t{{.Ports}}\"'"
 	echo $alias_dps >> ~/.bashrc
 }
 

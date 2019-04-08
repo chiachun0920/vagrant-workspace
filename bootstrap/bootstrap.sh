@@ -6,7 +6,7 @@ _install_nvm () {
 	echo "download installing script"
 	sudo curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 	source ~/.bashrc
-	pushd /home/vagrant/.nvm
+	pushd /home/$USER/.nvm
 	source nvm.sh
 	nvm install node
 	nvm use node
@@ -77,5 +77,7 @@ echo "SETUP DEV DEPENDENCIES"
 # install development dependencies
 install nvm docker
 setup alias git
+
+sudo apt-get install htop
 
 echo "cd /workspace/" >> ~/.bashrc

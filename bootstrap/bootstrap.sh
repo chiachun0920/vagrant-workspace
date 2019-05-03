@@ -55,6 +55,10 @@ _setup_alias () {
   echo $alias_dps >> ~/.bashrc
 }
 
+_setup_vim () {
+
+}
+
 _setup () {
   _setup_$1
   shift 1
@@ -76,7 +80,7 @@ echo "SETUP DEV DEPENDENCIES"
 
 # install development dependencies
 install nvm docker
-setup alias git
+setup alias git vim
 
 sudo apt-get install htop
 

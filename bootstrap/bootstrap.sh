@@ -55,8 +55,24 @@ _setup_alias () {
   echo $alias_dps >> ~/.bashrc
 }
 
-_setup_vim () {
+_install_Vundle() {
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  vimrcSrc=https://raw.githubusercontent.com/chiachun0920/vagrant-workspace/master/.vimrc
+  curl $vimrcSrc -o ~/.vimrc
+  vim +PluginInstall +qall
+}
 
+_install_YCM_dependencies() {
+  sudo apt-get install build-essential cmake python3-dev python-dev -y
+  cd ~/.vim/bundle/YouCompleteMe
+  ./install.py --ts-completer
+  cd ~/.vim/bundle/YouCompleteMe/third_party/ycmd
+  npm install -g --prefix third_party/tsserver typescript
+}
+
+_setup_vim () {
+  _install_Vundle
+  _install_YCM_dependencies
 }
 
 _setup () {

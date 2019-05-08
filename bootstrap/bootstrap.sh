@@ -70,9 +70,14 @@ _install_YCM_dependencies() {
   npm install -g --prefix third_party/tsserver typescript
 }
 
+_install_ack_dependencies() {
+  sudo apt-get install ack-grep -y
+}
+
 _setup_vim () {
   _install_Vundle
   _install_YCM_dependencies
+  _install_ack_dependencies
 }
 
 _setup () {

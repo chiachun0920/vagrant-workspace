@@ -72,6 +72,8 @@ _install_YCM_dependencies() {
 
 _install_ack_dependencies() {
   sudo apt-get install ack-grep -y
+  ackrcSrc=https://raw.githubusercontent.com/chiachun0920/vagrant-workspace/master/.ackrc
+  curl $ackrcSrc -o ~/.ackrc
 }
 
 _setup_vim () {
